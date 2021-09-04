@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1620842621 source:c:\users\thiago.belordi\documents\aulas estacio\c\vetores_sequecialetras_quantidadeapareceu\main.c
+	<stdio.h>
+	<stdlib.h>
+

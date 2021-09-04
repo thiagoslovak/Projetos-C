@@ -1,0 +1,414 @@
+NA LINGUAEM C REGISTROS SÃO CHAMOS DE STRUC
+STRUC ESTRUTURA DE DADOS HETEROGÊNEA -- (HETEROGÊNEA) é um adjetivo que pode assumir o significado de diferença, diversidade, pluralidade ou variedade
+
+  Na linguagem C, existem dois tipos de dados: Os tipos básicos (int, char, float, double, void) e os tipos compostos homogêneos (arrays). Porém, nem sempre estes tipos
+são suficiente para o programa e, por isso, a linguagem C nos permite a criação de outras estruturas de dados, a partir dos tipos básicos, como os registros.
+  Na linguagem C, os registros são representados com uma estrutura denominada struct, que é uma coleção de variáveis relacionadas, usando um nome comum. As estruturas
+de dados em liguagem C podem coter variáveis de tipos diferentes de dados, ao contrário de um array, que só pode conter dados do mesmo tipo.
+ 	!! As estruturas (Struct) são usadas para definir registros que são armazenados em arquivos e, com os poteiros, simplificam a criação de estruturas de 
+dados mais complexas, por exemplo, pilhas, listas ligadas, filas e árvores.
+  Sendo assim, entendemos que as estruturas são um tipo de dados derivado, o que significa que são construídas com o uso de objetos de outros tipos existentes.
+  Definindo um modelo de estrutra na linguagem C:
+
+	struct identificador {
+		tipo variável; tipo variável;
+		tipo variável;
+		tipo variável;
+	};
+ 
+  Em resumo, struct é um conjunto de variáveis sob o mesmo nome, e definido pelo programador. E cada variável dentro de uma estrutura pode ser de um tipo diferente, ou
+melhor, não é obrigatório que sejam do mesmo tipo.
+  Um exemplo de definição de struct. A palavra-chave struct inicia o bloco de definição da estrutura. Logo após, vem o nom que desejamos atribuir à estrutura
+(tag da estrura), e então são abertas chaves "{" para iniciar a seção do corpo da estrutura.
+
+	struct mystruct {
+		char a;
+		int b;
+		float c;
+	};
+
+Nesse outro exemplo, é possivel visualizar a definição de uma estrutura de nome endereço, contendo os membros rua, numero, CEP e bairro:
+
+	struct endereco {
+		char rua[50];
+		char numero[5];
+		char CEP[8];
+		char bairro[30];
+	};
+
+DECLARAÇÃO DE STRUCT EM C
+
+  A declaração de estrutura de dados struct é realizada da seguinte forma:
+
+	struct nome_da_estrutura {
+		tipo_campo1 nome_campo1;
+		tipo_campo2 nome_campo2;
+	} varáveis_que_armazena_a_estrutura;
+
+Onde:
+	- Struct é a palavra-chave para estrutura.
+	- Tag da estrutura é a palavra nome_da_estrutura. A tag de estrutura é usada para declarar variáveis deste tipo de estrutura, é o que indentifica
+ 	  este tipo de estrutura.
+	- Membros ou campo são as variáveis dentro da estrutura.
+	- Variáveis_que_armazenam_a_estrutura é o nome da variável que irá armazenar os valores da struct.
+
+  No corpo da estrutura, são definidos as variáveis ou membros do tipo struct, cada um con seu nome, sem repetições, e podem ser de qualquer tipo básico de dados
+(int, float, char, etc.), ou ainda, tipos de dados agregados, como arrays ou até mesmo outras estruturas - desde que não contenha uma instância de si mesma. É 
+comum chamar os membros de elementos ou campos.
+
+  Note que nenhuma variável é realmente declarada com este comando - apenas definimos o formato dos dados da estrutura.
+  Basicamente, um tipo complexo de variável. Se quisermos declarar uma variável, podemos fazê-lo ao final da estrutura (variáveis_que_armazena_a_estrutura;) ou com
+as declarações de outrasvariáveis, como veremos a seguir.
+  A declaração da estrutura de dados struct pode ser feita de três maneiras diferentes.
+  A primeira é a declaração do tipo struct realizada da mesma forma que declaramos variáveis de outros tipos quaisquer. Por exemplo, vamos declarar a variável x para
+que seja do tipo struct endereço com a declaração a seguir.
+
+	struct endereco x;
+
+  A segunda maneira é a de declaração de uma ou mais variáveis durante a definição do própria estrutura. Por exemplo, podemos declarar três variáveis de nomes
+livro1, livro2 e livro3 a partir de uma estrutura de nome livro.
+
+	struct livro {
+		char nome[30];
+		char autor[50];
+		int paginas;
+		float preco;
+	} livro1, livro2, livro3;
+
+  E por ultimo, a terceira maneira é para o caso de apenas uma variável do tipo estrutura ser necessária no programa. Sendo assim, não precisamos declarar um identificador,
+basta definir o ome da variável que será criada. Por exemplo, podemos criar uma variável estrutura chamada livro da seguinte forma:
+
+	struct {
+		char nome[30];
+		char autor[50];
+		int paginas;
+		float preco;
+	} livro;
+
+  Como pode ser visto, nesta última forma de declaração, o nome para a tag de estrutura é opcional. Entretanto, se não for declarado um nome, esta última forma de
+declaração é a única maneira de declarar as variáveis do tipo estrutura. Apesar de ser possível não dar um nome á estrutura, sempre forneça um, pois é 
+uma prática recomendada.
+
+  Podem ser feitas diversas operações com as structs em linguagem C, como:
+	- Atribuição de variáveis da estrutura a variáveis da estrutura do mesmo tipo.
+	- Leitura do endereço de uma variável de estrutura (operador &).
+	- Acesso aos membros de uma variável de estrutura.
+	- Uso do operador sizeof para determinar o tamanho de uma variável de estrutura.
+
+INICIALIZANDO STRUCT EM C
+  
+  A estrutura de dados struct em linguagem C possui um inicialização parecida com os vetores e as matrizes.
+  Uma das maneiras de inicializar uma struct é através de uma lista de inicialização, como um array. Agora, se o número de inicializadores na lista for menor que os
+membros da estrutura, os membros restantes serão automaticamente inicializados em zero ou Null, se o membro for um ponteiro.
+  Por exemplo, podemos inicializar a estrtura endereço usando a declaração a seguir. Observe que os elementos do array são passados aos membros da estrutura na ordem
+em que foram declarados.
+
+	struct endereco x = {"Av. das Américas", "4200", "22640-102", "Barra da Tijuca"};
+
+  Outra forma é atribuindo uma variável estrutura do mesmo tipo, já inicializada.
+  Por último, atribuindo valores aos membros individuas da estrutura. Por exemplo, suponha que desejamos atribuir o valor "Av. das Américas" ao membro rua das 
+estruturas endereco.
+  Podemos usar a declaração a seguir, referenciando o nome da variável estrutura, seguida por um ponto e pelo nome do membro (campo) que receberá a atribuição do dado.
+
+	endereco.rua = "Av. das Américas";
+
+ACESSANDO OS MEMBROS DA STRUCT EM C
+
+  Para acessar os membros de uma estrutura de dados struct, podem ser utilizados dois tipos de operadores:
+	- Operador de membro de estrutura . (operador de ponto ou de seleção direta).
+	- Operador de ponteiro de estrutura -> (operador de seta).
+  Quando é declarada uma variável do tipo estrutura, acessamos um membro da estrutura usando o operador ponto, indicando o nome da estruturam seguido por um ponto
+ e pelo nome do campo que se quer acessar. Nesse caso, dizemos que a estrutura é diretamente referenciada.
+
+  Por exemplo, podemos acessar e visualizar o campo rua da estrutura x, que é uma variável da struct endereço,) usando a seguinte declaração:
+	
+	printf("%s", x.rua);
+
+  Quando a struct for referenciada através de ponteiros, o emprego é semelhante ao operador ponto, sendo este substituído pelo operador seta (->).
+  Por exemplo, suponha que um ponteiro xptr tenha sido declarado e aponte para a estrutura endereco, que o endereço de uma estrutura x tenha sido atribuído ao
+ponteiro xprt. Para acessar o membro rua da estrutura endereco via operador de ponteiro, usamos a declaração a seguri:
+
+	printf("%s", x->rua);
+
+MANIPULANDO STRUCTS
+
+  As estruturas de dados structs podem ser manipuladas com o objeto de acessar os campos, atribuir valores para os campos, imprimir os valores dos campos, dentre outros.
+  Para Atribuir valores aos campos da estrutura, você faz isto diretamente, e em qualquer partedo programa, conforme a seguir:
+
+	aluno_especial.codigo = 10;
+	strcpy(aluno_especial.nome, "Manoel");
+	aluno_especial.nota = 10.0;
+
+  Para atribuir um valor a uma string, é necessario utilizar a função strcpy(CPY = copiar; STR = string). A função copiará oque está dentro das aspas duplas para o
+campo STRING da estrutura.
+  É possivel imprimir os valores dos campos da estrutura em qualquer parte do programa utilizando a função printf.
+
+	printf(" \n %d ", aluno_especial.codigo);
+	printf(" \n %s ", aluno_especial.nome);
+	printf(! \n %.2f ", aluno_especial.nota);
+
+  Entretando, se for preciso imprimir todos os membros da estrutura de uma única vez, é recomendável criar uma função para isto.
+
+	void imprimir(Aluno aluno_regular){
+		printf(" \n %d ", aluno_especial.codigo);
+		printf(" \n %s ", aluno_especial.nome);
+		printf(! \n %.2f ", aluno_especial.nota);
+	};
+
+  Observe que a função de impressão é do tipo Void, mas tem argumento, isto é, é definida uma variável do tipo estrutura, significando que, ao chamar a função,
+você deverá passar como parâmetro a estrutura que está trabalhando.
+  A chamada fica da seguite forma:
+	
+	imprimir(aluno_especial);
+
+  Para obter dados do teclado, devemos utilizar a função scanf, como em outras situações para entrada de dados na linguagem C.
+  Podemos obter dados do teclado em qualquer parte do programa, assim como também podemos definir uma função pararealizar este trabalho.
+
+	printf(" Digite o código do aluno especial: ");
+	scanf("%d%*c", &aluno_especial.codigo);
+	printf(" Digite o nome do aluno especial: ");
+	scanf("%s%*c", &aluno_especial.nome);
+	printf(" Digite a nota do aluno espcial: ");
+	scanf("%f%*c", &aluno_especial.nota);
+
+	void cadastrar(Aluno aluno_especial){
+		printf(" Digite o código do aluno especial: ");
+		scanf("%d%*c", &aluno_especial.codigo);
+		printf(" Digite o nome do aluno especial: ");
+		scanf("%s%*c", &aluno_especial.nome);
+		printf(" Digite a nota do aluno espcial: ");
+		scanf("%f%*c", &aluno_especial.nota);
+	};
+
+  Observe que na função cadastrar e imprimir é passado como parâmetro (por valor) a variável do tipo estrutura. Em algumas ocasiões, você precisará fazer desta forma,
+em outras, talvez você não tenha que passar a estrutura como parâmetro.
+
+
+STRUCT ANINHADA
+
+Definição
+  Uma estrutura de dados aninhada ou struct aninhada é basicamente uma estrutura dentro de outra, ou seja, uma estrutura contida em outra ou uma estrutura que pode
+ser acessada por outra.
+  Desta maneira, podemos entender que a struct aninhada é um aninhamento de estruturas que nos permite criar estruturas que contenham outras estruturas internas.
+  O padrão ANSI C especifica que as estruturas de dados (struct) podem ser aninhadas até 15 níveis, mas a maioria dos compiladores permite mais.
+
+Declaração
+  Apenas para relembrar, sabemos que a declaração de estrutura declara um tipo struct. E cada tipo struct recebe um nome (ou tag) que se refere àquele tipo pelo nome
+precedido pela palbra struct. Cada unidade de dados na estrutura é chamada membro. Os membros de uma estrutura podem ser de qualquer tipo. Sendo assim, os membros de
+estruturas podem ser também outras estruturas.
+  As estruturas aninhadas podem ser declaradas de duas formas.
+  A primeira forma é colocar uma estrutura dentro de outra, literalmente. Portante, a sintaxe para trabalhar com estrturas aninhadas nessa forma é:
+
+	typedef struct {
+		tipo membro_1;
+		tipo membro_2;
+		...	
+		tipo membro_n;
+		struct {
+			tipo membro_interno_1;
+			tipo membro_interno_2;
+			...
+			tipo menbro_interno_n;
+		}
+	} Nome_estrutura;
+	Nome_estrutura NE;
+
+  E para acessar os membros, o acesso é direto e a sintaxe é:
+
+	//Para atribuir valores:
+	NE.membro_interno_1 = 0;
+	NE.membro_1 = 0;
+
+	//Para leitura do teclado:
+	&NE.membro_interno_1
+	&NE.membro_1
+
+	//Para impressão:
+	NE.membro_interno 1
+	NE.membro_1
+
+  Outra froma é voc~e declarar a estrutura_1 antes e, na estrutura_2, declarar uma variável da estrutura 1. Desta forma, a sintaxe é a seguinte:
+
+	typedef struct {
+		tipo membro_1;
+		tipo membro_2;
+		...
+		tipo membro_n;
+	} nome_estrutura_1;
+
+	typedef struct {
+		tipo membro_1;
+		tipo membro_2;
+		nome_estrutura_1 NE1;
+		...
+		tipo membro_n;
+	} nome_estrutura_2;
+
+	nome_estrutura_2 NE2;
+
+E para acessar os membros, a sintaxe é:
+
+//para acessar os membros
+NE2.membro1;
+NE2.mebro2;
+NE2.NE1.membro1;
+NE2.NE1.membro2;
+
+MANIPULAÇÃO DE STRUCTS ANINHADAS
+
+Agora que já sabemos como declarar uma estrutura aninhada, vamos aprender como  manipular os membros de uma struct aninhada.
+
+Observe o trecho do programa que define duas estruturas, porém a segunda tendo membros que são também estruturas.
+
+#define LEN 50
+
+struct endereco {
+	char rua [LEN];
+	char cidade_estado_cep[LEN];
+};
+
+struct stundent {
+	char id[10];
+	int idade;
+			struct endereco casa;
+		struct endereco escola;
+};
+
+struct stundent pessoa;
+
+Dadas estas definições, é possível acessar os seguintes campos da variável pessoa do tipo struct(uma variável do tipo struct student)
+
+pessoa.id
+pessoa.casa.rua
+pessoa.casa.cidade_estado_cep
+pessoa.escola.rua
+pessoa.escola.cidade_estado_cep
+
+Note o uso repetido de "." quando se acessa membros dentro de membros.
+
+ARRAY DE STRUCTS 
+
+Definição
+
+																						VETOR
+
+SÉRGIO MATEMÁTICA 10,50	| LUCAS PORGUÊS 8,5  | ALANA HISTORIA 10,0  | JÚLIA GEOGRAFIA 9.5  | ....  | DAISY FÍSICA 7.5  |
+																						
+				0													1  										2  								     3  													N
+
+Ao analisar o vetor da figura, podemos verificar que cada posição do vetor armazena um conjunto de informações diferentes.
+Neste exemplo, cada posição está armazenando um tipo de string no campo nome do aluno, um tipo string no campo nome da disciplina e um tipo
+flaot no campo nota.
+
+Sendo assim, podemos conceituar um vetor de estruturas ou um array de structs como uma estrutura de dados que armazena uma sequência de objetos,
+ que são do mesmo tipo, e no caso, os objetos são estruturas.
+
+Declaração
+
+Para entendermos melhor a declaração de um array de structs, vamos voltar para o exemplo de vetor de estruturas ilustrado na figura.
+A declaração da estrutura do exemplo ficará da seguente forma:
+
+	typedef struct {
+			char nome[200];
+			char disciplina[100];
+			float nota;
+	} Aluno;
+
+	Aluno aluno_nota[10];
+
+	Ao observamos a declaração da estrutura, a linha 7 é a que cria de fato o vetor. No exemplo, é criado um vetor de 10 posições pra armazenar
+	 o nome do aluno, a disciplina que o aluno está cursando e a nota do aluno.
+
+	 INICIALIZANDO O ARRAY DE STRUCT
+
+	 Para inicializar um array de struct, devemos atribuir aos seus membros os valores padrão (default) de cada tipo de dado. O código abaixo
+	 mostra como isto é feito no exemplo:
+
+	 for(i=0; i<10;i++) {
+	 	strcpy(aluno_nota[i].nome."NULL");
+	 	strcpy(aluno_nota[i].disciplina = '');
+	 	aluno_nota[i].nota = 0.0;
+	 }
+
+	Observe que a função STRCPY da  biblioteca string foi utilizada. Esta função copia um valor para um variável de cadeia de caracteres.
+
+	POPULANDO O ARRAY DE STRUCT
+	Após a inicialização do array de struct, podemos inserir informações, dados. Sendo assim, é necessário um laço for para armazenar cada
+	estrutura em uma posição. O código abaixo ilustra como armazenar as informações do nosso funcionário. Dentro do for, colocamos os comandos
+	de leitura e escrita, necessários para pedir ao usuário o que ele deve digitar e, depois, armazenar o que foi digitado. Note que, para
+	armazenar os dados que são inseridos a partir do teclado, precisamos utilizar a sintaxe:
+
+		&nome_vetor_struct[indice].nome_membro_struct;
+
+		for (i=0;i<10;i++) {
+			printf(" Digite nome do aluno: ");
+			scanf("%s%*c", aluno_nota[i].nome);
+			printf(" Digite a disciplina do aluno: ");
+			scanf("%s%*c", aluno_nota[i].disciplina);
+			printf(" Digite a nota do aluno: ");
+			scanf("%f%*c", aluno_nota[i].nota);
+		}
+
+		IMPRIMINDO O ARRAY DE STRUCT
+
+		No caso da impressão dos valores do array de struct, será necessário o uso do laço for para percorrer todas as poições desse array. A cada
+		passagem no for, será impresso o conteúdo de uma posição do vetor na tela.
+
+		A sintaxe que você deve usar aqui é a seguinte:
+
+			printf("\nTEXTO %_", nome_vetor_struc[indice].nome_membro_struct);
+
+		É necessária a inclusão do tipo de dado que deverá ser impresso, isto é, substitua %_ pelo correspondente( exemplo: %d para inteiro).
+
+		for(i=0;i<10;i++) {
+			printf(" \n O nome do aluno é: %d ", aluno_nota[i].nome);
+			printf(" \n A disciplina do aluno é: %d ", aluno_nota[i].disciplina);
+			printf(" \n A nota do aluno é: %.2f ", aluno_nota[i].nota);
+		}
+
+		BUSCANDO UM ELEMENTO NO ARRAY DE STRUCT
+
+		A pesquisa no array de struct pode procurar por um valor no vetor de estrutura. Por exemplo, você pode fazer uma pesquisa pelo nome,
+		pela disciplina e pela nota, sendo assim, é possivel fazer uma pesquisa por todos os membros da struct. Entretando, é necessário tomar cuidado
+		quando for buscar por uma string.
+
+		Vamos analisar o código de uma busca por uma string, neste caso, vamos procurar pelo nome.
+
+		printf(" \n Digite um nome: ");
+		scanf("%s%*c", nome);
+
+		for(i=0;i<10;i++) {
+			if(strcmp(nome, aluno_nota[i].nome)==0) {
+				printf(" \n Registro encontrato! ");
+				posicao = i;
+			}else{
+				posicao = -1;
+			}
+		}
+
+		if(posicao = -1) {
+			printf(" \n Registro não encontrado! ");
+		}else{
+			printf(" \n Registro Encontrando: ");
+			printf(" \n O nome do aluno é: %s ", aluno_nota[posicao].nome);
+			printf(" \n A disciplina do aluno é: %s", aluno_nota[posicao].disciplina);
+			printf(" \n A nota do aluno é: %.2f ", aluno_nota[posicao].nota);
+		}
+
+		Agora, vamos analisar o código deste programa.
+
+		Primeiro, é solicitado ao usuário que digite um nome para a busca. Este nome será armazenado em uma variável chamada nome, que foi
+		declarada anteriormente no programa.
+		Como o nome terá de ser procurado neste array, então um laço for será usado para percorrer esse array e analisar, posição a posição, se o
+		nome digitado pelo usuário está ali ou não. Dessa forma, a string digitada pelo usuário será comparada com a astring armazenada
+		na posição i do vetor.
+		Uma função chamada strcmp(string1, string2); na biblioteca de strings é utilizada para fazer a comparação da primeira string com a segunda
+		string. Aqui, a variável nome será comparada com o nome que está armazenando em cada uma das posições do vetor (aluno_nota[i].nome).
+		Quando o resultado dessa comparação for igual a zero, significa que a string foi encontrada em uma determinada posição do vetor.
+		Mas, se o resultad for diferente e zero, então, a string foi encontrada. Portanto, um if é usando dentro do for para fazer essa verificação:
+
+			if(strcmp(nome, aluno_nota[i].nome)==0)
+
+		O if é adicionado logo depois do for para verificar se posição é -1 ou não. Se a posição for igual a -1, então o registro não foi encontrando
+		caso contrario, é impresso o valor da posição da estrutura. Para que isso seja possível, a variável i, que seria o indice do vetor, é 
+		substituido pela variável posição, que contém o valor exato da posição em que o nome foi encontrado.

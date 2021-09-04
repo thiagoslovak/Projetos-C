@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1621081706 source:c:\users\thiago.belordi\documents\aulas estacio\c\matrizlerdados_maiornumero\main.c
+	<stdio.h>
+	<stdlib.h>
+

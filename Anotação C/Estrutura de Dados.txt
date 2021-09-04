@@ -1,0 +1,35 @@
+VETORES UNIDIMENSIONAIS E BIDIMENSIONAIS: Tabém conhecidos por Arrays, são algumas das estruturas de dados mais simples e mais utilizadas dentre todas. Os dados
+armazenados neste tipo de estrutura são do mesmo tipo, portando, dizendo que é uma estrutura homogênea. Nessa estrutura, a adição e pesquisa de novos elementos
+é realizada de forma aleatória e o acesso aos elementos é através de índices. No caso dos vetores unidimencionais, só exite uma linha, e no caso dos bidimensioanais, são
+empregadas linhas e colunas, formando uma matriz.
+
+FILA: É uma estrutura coma a ideia de organizar elementos em fila. Basicamente, uma fila é uma lista que só vai para um lado, ou seja, novos elemntos são inseridos
+no final da fila e os elementos a serem removidos estão no início da fila. É comum utilizar a expressão FIFO(First-In-First-Out) para ilustrar o funcionamento da
+fila, que significa primeiro a entrar - primeiro a sair.
+
+ARVORE: É uma estrutura de dados que caracteriza uma relação de hierarquia entre os elementos. Por exemplo, para se construir um organanograma de uma empresa, 
+visualizando o conjunto de pessoas que lá trabalham, tendo em conta sua função, a estrutura de dados árvore é que mais se aplica. Na estrutura da empresa, uma
+pessoa não pode pertencer a dois departamentos diferentes, cada departamento tem a sua própria diretoria.
+
+LISTA ENCADEADA: É uma estrutura de dados que implementa um conjunto de dados ordenados e do mesmo tipo, ou seja, é um sequência de zero ou mais elementos de um
+determinado tipo. Uma diferença básica entre os vetores e a lista é que nesta os elementos não precisam estar fisicamente em sequência, ou seja, eles podem
+ocupar posições de menória não sequenciais.
+
+PILHA: É uma estrutura de dados amplamente utilizada e que implementa a ideia de pilha de elementos. Basicamente, é uma sequência de elementos dispostos
+"um em cima do outro", mais com uma regra para entrada e saída dos elementos. O último elemento que chega é o primeiro que sai da estrutura. É comum utilizarmos
+a expressão LIFO(Last-In-First-Out) para designar a pilha, que significa último a aentrar - primeiro a sair. Para que o acesso a um elemento da pilha ocorra, os
+demais acima devem ser removidos.
+
+GRAFO: É uma estrutura de dados bastante genérica, que organiza vários elementos, estabelecendo relações entre eles, dos a dois. Por exemplo, ao se estabelecer
+um trajeto para percorrer todas as capitais do NE do Brasil, devemos utilizar um mapa que indique as rodovias existentes e estabeleça uma ordem para percorrer as
+cidades. Para este caso, a estrutura de dados grafo é mais apropriada.
+
+ESTRUTURA DE DADOS HOMOGÊNEA X HETEROGÊNEAS: As estruturas de dados também se dividem em homogênea e heterogênes.
+As estruturas de dados Homogêneas são conjunto de dados formados pelo mesmo tipo de dados. Esta estrutura permite o agrupamento de várias informações ou valores
+dentro de uma mesma varável. Como exemplo, podemos citar os vetores e as matrizes.
+Um vetor é um arranjo de elementos que armazenamos na memória principal, com posições de memória, todos com o mesmo nome. Sendo assim, podemos entender que os vetores
+são estruturas lineares e estáticas, isto é, são compostas por um número e predeterminado de valores.
+
+As estrturas de dados heterogêneas são conjuntos de dados formados por tipos de dados diferentes, como os registros. Para entender melhor, citemos como exemplo
+uma agenda telefônica, na qual teremos informações de vários tipos: Nome, telefone, endereço etc. Uma das principais estruturas de dados heterogêneas é o registro.
+Um registro pode ser composto de vários campos, componentes ou elementos e cada um deles pode ser de um tipo diferente.

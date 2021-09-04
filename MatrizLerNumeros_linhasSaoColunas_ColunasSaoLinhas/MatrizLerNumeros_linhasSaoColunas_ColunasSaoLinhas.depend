@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1621080837 source:c:\users\thiago.belordi\documents\aulas estacio\c\matrizlernumeros_linhassaocolunas_colunassaolinhas\main.c
+	<stdio.h>
+	<stdlib.h>
+

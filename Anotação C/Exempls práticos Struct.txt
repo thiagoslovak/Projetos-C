@@ -1,0 +1,316 @@
+Vamos criar uma struct para armazenar os dados do aluno.
+
+struct aluno {
+    int v_nmat; //número da matrícula
+    float v_nota[3]; //notas
+    float v_media; //media
+};
+
+int main() {
+    struct aluno Felipe; //Declara uma variável do tipo struct
+    Felipe.v_nmat = 120;
+    Felipe.v_nota[0]=8.5;
+    Felipe.v_nota[1]=7.2;
+    Felipe.v_nota[2]=5.4;
+    Felipe.v_media=(Felipe.v_nota[0]+Felipe.v_nota[1]+Felipe.v_nota[2])/3.0;
+    printf("Matricula: %d\n", Felipe.v_nmat);
+    printf("Media: %2f\n", Felipe.v_media);
+    system("pause");
+    return(0);
+}
+
+  Neste Exemplo, é declarada a strunc aluno.
+  A struct aluno é composta pelos campos matrícula, nota e média, onde o nome do campo matrícula é v_nmat do tipo int, o nome do campo é v_nota do tipo float
+e nome do campo média é v_media do tipo float. O campo nota é também um vetor de 3 posições, conforme sua declaração.
+  Na linha 12, é declarada a variável Felipe do do tipo struct aluno.
+  A struct aluno Felipe recebe os valores para os seus campos. Na linha 13, o campo v_nmat recebe o valor de 120.
+  O campo v_notam que é um array, recebe os valores para as três posições do vetor.
+  Na linha 17, para o último campo da struct aluno é calculada a média do aluno e armazenada.
+  O exempo finaliza com a impressão da matrícula e da média das notas do aluno Felipe.
+
+VAMOS ANALISAR MAIS UM EXEMPLO.
+
+  No caso, criamos a struct ficha_de_aluno. Depois de criar a struct, precisamos criar a avariável que vai utilizá-la. Para tanto, criamos a variável aluno,
+que será do tipo ficha_de_aluno.
+
+int main(void)
+{
+    /*Criando a struct*/
+    struct ficha_de_aluno
+    {
+        char nome[50];
+        char disciplina[30];
+        float nota_prova1;
+        float nota_prova2;
+    };
+
+    /*Criando a variável aluno que será do tipo struct ficha_de_aluno*/
+    struct ficha_de_aluno aluno;
+
+    printf("\n---------- Cadastro de aluno -----------\n\n\n");
+    printf("Nome do aluno ......: ");
+    fflush(stdin);
+    fgets(aluno.nome, 40, stdin);
+    printf("Disciplina ......: ");
+    fflush(stdin);
+    fgets(aluno.disciplina, 40, stdin);
+    printf("Informe a 1a. nota ..: ");
+    scanf("%f", &aluno.nota_prova1);
+    printf("Informe a 2a. nota ..: ");
+    scanf("%f", &aluno.nota_prova2);
+    printf("\n\n ---------- Lendo os dados da struct ----------\n\n");
+    printf("Nome ..........: %s", aluno.nome);
+    printf("Disciplina .....: %s", aluno.disciplina);
+    printf("Nota da Prova 1 .....: %.2f\n", aluno.nota_prova1);
+    printf("Nota da Prova 2 .....: %.2f\n", aluno.nota_prova2);
+    getch();
+    return(0);
+}
+
+  Neste exemplo, é declarada a struct ficha_de_aluno composta pelos seguintes campos: Nome, Disciplina, nota_prova1 e nota_prova2.
+  O campo nome é uma variável do tipo char e um vetor com 50 itens, o campo disciplina é uma variável do tipo char e um vetor com 30 itens e os campos
+nota_prova1 e nota_prova2 são variáveis do tipo float.
+
+  Ao continuar com o reconhecimento do código-fonte, é observado o uso da instrução fgets() com o objetivo de ler strings, no caso, o nome do aluno e a discuplina.
+
+	fgets(variavel, tamanho da string, entrada)
+
+  Neste caso, a entrada é stdin (entrada padrão), pois estamos lendo do teclado, mas, em outro caso, a entrada também poderia ser um arquivo.
+
+  STRUCT ANINHADA
+
+  Para entendermos melhor as duas formas de declaração de estrura aninhadas, vamos alisar o ex:
+
+1 #include <studio.h>
+2 #include <stdlib.h>
+3
+4 struct departamento {
+5   int cod;
+6   char descricao[30];
+7 };
+8
+9  struct cargo {
+10  int cod;
+11  char descricao[30]];
+12 };
+13
+14 struct funcionario {
+15  int cod;
+16  char nome[30];
+17  float salario;
+18  struct departamento depto;
+19  struct cargo cargo;
+20 };
+21
+22 struct funcionario Funcionario;
+23
+24 int main(void)
+25 {
+26 
+27 }
+//Linhas
+Observe são definidas três estruturas que recebem os nomes: departamente, cargo e funcionário.
+A estrutura funcionário possui 5 membros, os dois últimos membros são do tipo struct departamento e struct cargo, isto é, dentro da estrutura
+funcionário, temos dois membros do tipo struct.
+
+Em resumo, temos:
+ -Nas linhas 4 e 7, foi declarada a estrutra departamento.
+ -Nas linhas 9 e 12, foi declarada a estrutura cargo.
+ -Nas linhas 14 e 20, foi declarada a estrutura funcionário.
+ -Na linha 18, o campo depto é do tipo struct departamento.
+ -Na linha 19, o campo cargo, da mesma forma que o campo depto, é do tipo struct cargo.
+
+ Ao analisar o código, visualizamos uma struct aninhada nas linhas 18 e 19, com os campos depto e cargo. Temos, então, um aninhamento
+ de estruturas.
+
+ Outra Froma de declarar uma estrutura é colocar uma estrutura dentro da outra, literalmente como a seguir:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cargo {
+  int cod;
+  char descrição[30];
+};
+
+struct funcionario {
+  int cod;
+  char nome[30];
+  float salario;
+  struct departamento {
+    int cod;
+    char descricao[30];
+  };
+
+  struct cargo cargo;
+};
+
+struct funcionario Funcionario;
+
+int main(void)
+{
+ 
+}
+
+Além das duas forma de declaração de estrutura aninhada mostradas anteriormente, pode-se utilizar também o tipo typedef 
+ao invés de struct.
+Sendo assim, vamos analisar o Exemplo anterior e adaptalo para o uso de typedef.
+
+#include< stdio.h>
+#include< stdlib.h>
+
+typedef struct departamento{
+  int cod;
+  char descricao[30];
+} Departamento;
+
+typedef struct cargo{
+  int cod;
+  char descricao[30];
+} Cargo;
+
+typedef struct funcionario{
+    int cod;
+    char nome[30];
+    float salario;
+    Departamento depto;
+    Cargo cargo;
+} Funcionario;
+
+printf("\n TEXTO %_", nome_vetor_struct[indice].nome_membro_struct);
+
+int main(void)
+{
+ 
+}
+
+Ao analisar o código, podemos observar que o typedef foi declarado em conjunto com o struct, tanto para estrutura departamento quanto departamento
+quantopara cargoe para estrutura funcionário. Insto é útil apenas para resumir a condificação, mas não infui no desempenho da aplicação.
+
+!!O comando typedef permite criar um novo nome para outro tipo de dados. Assim, o novo tipo de dados pode ser declarado como um tipo de dados
+primitivo existente no Linux!!.
+
+Ao analisar a declaração dos campos depto e cargo, observe que estes campos agora não são mais do tipo estrutura, mas do tipos definidos
+Departamento e Cargo, respectivamente.
+
+Desta forma, pode-se declarar campos de outros tipos definidos dentro de uma estrutura que também pode ser um tipo definido.
+Além disso, não há uma limitação para o número de níveis na declaração aninhada, não seria prático incluir muitos níveis, pois Insto
+irá complicar o entendimento para manutenção do código-fonte.
+
+EX....
+Vamos criar uma struct para armazenar os dados do aluno (código, nome e data de nascimento).
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+typedef struct {
+    int codigo;
+    char nome[200];
+        struct {
+            int dia;
+            int mes;
+            int ano;
+        };
+} Aluno;
+
+Aluno aluno;
+
+int main(void) {
+    setlocale(LC_ALL, "portuguese");
+    aluno.codigo = 0;
+    strcpy(aluno.nome, "NULL");
+    aluno.dia = 0;
+    aluno.mes = 0;
+    aluno.ano = 0;
+    printf("\n O código do aluno é: %d ", aluno.codigo);
+    printf("\n O nome do aluno é: %s ", aluno.nome);
+    printf("\n A data de nascimento do aluno é: %d / %d / %d ", aluno.dia, aluno.mes, aluno.ano);
+    printf("\n \n");
+    printf(" Digite o código do aluno: ");
+    scanf("%d%*c", &aluno.codigo);
+    printf(" Digite o nome do aluno: ");
+    scanf("%s%*c", &aluno.nome);
+    printf(" Digite o dia do nascimento do aluno: ");
+    scanf("%d%*c", &aluno.dia);
+    printf(" Digite o mês do nascimento do aluno: ");
+    scanf("%d%*c", &aluno.mes);
+    printf(" Digite o ano do nascimento do aluno: ");
+    scanf("%d%*c", &aluno.ano);
+    printf(" \n O código do aluno é: %d ", aluno.codigo);
+    printf(" \n O nome do aluno é: %s ", aluno.nome);
+    printf(" \n A data de nascimento do aluno é: %d / %d / %d ", aluno.dia, aluno.mes, aluno.ano);
+    printf(" \n \n");
+    system("pause");
+    return(0);
+}
+
+Observe as linhas de 06 a 14. Nesse trecho do código-fonte, é definida uma estrutura que recebe o nome de Aluno e, dentro dela, outra
+estrutura com os membros dia, mês e ano.
+A estrutura que possui a data de nascimento do aluno está nas linhas 10, 11 e 12, note que ela não tem nome, e não é necessárop que tenha, pois
+ela está contida dentro da estrutura Aluno. Podemos dizer que temos uma estrutura externa e uma estrutura interna, as quais são respectivamente
+Aluno e data.
+Os membros da estrtutura interna são acessados da mesma forma que a estrutura externa, isto é, diretamente.
+Na linha 26, podemos observar a forma de acesso diretamente pelo nome da variável da estrutura.
+
+EX ....
+Agora nesse outro ex, vamos criar uma estruct para armazenar os dados do aluno (código, nome e data de nasciento), porém, a declaração será 
+diferente do ex anterior, pois algums membros da estrutura são do tipo struct.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+typedef struct {
+    int dia;
+    int mes;
+    int ano;
+} Data;
+
+typedef struct {
+    int codigo;
+    char nome[200];
+    Data datNasc;
+} Aluno;
+
+Aluno aluno;
+
+int main() {
+    setlocale(LC_ALL,"portuguese");
+    aluno.codigo = 0;
+    strcpy(aluno.nome, "NULL");
+    aluno.datNasc.dia = 0;
+    aluno.datNasc.mes = 0;
+    aluno.datNasc.ano = 0;
+    printf(" \n O código do aluno é: %d ", aluno.codigo);
+    printf(" \n O nome do aluno é: %s ", aluno.nome);
+    printf(" \n A data de nascimento do aluno é: %d / %d / %d ", aluno.datNasc.dia, aluno.datNasc.mes, aluno.datNasc.ano);
+    printf(" \n \n");
+    printf(" \n Digite o código do aluno: ");
+    scanf("%d%*c", &aluno.codigo);
+    printf(" \n Digite o nome do aluno: ");
+    scanf("%s%*c", &aluno.nome);
+    printf(" \n Digite o dia de nascimento do aluno: ");
+    scanf("%d%*c", &aluno.datNasc.dia);
+    printf(" \n Digite o mes de nascimento do aluno: ");
+    scanf("%d%*c", &aluno.datNasc.mes);
+    printf(" \n Digite o ano de nascimento do aluno: ");
+    scanf("%d%*c", &aluno.datNasc.ano);
+    printf(" \n O código do aluno é: %d", aluno.codigo);
+    printf(" \n O nome do aluno é: %s", aluno.nome);
+    printf(" \n A data de nascimento do aluno é: %d / %d / %d ", aluno.datNasc.dia, aluno.datNasc.mes, aluno.datNasc.ano);
+    printf(" \n \n");
+    system("pause");
+    return(0);
+}
+
+Neste exemplo, as estruturas são declaradas separadamente. As estruturas que serão utilizadas dentro de outras devem ser declaras antes.
+!! SE VOCÊ DECLARAR UMA ESTRUTURA E TENTAR UTILIZÁ-LA DENTRO DE OUTRA ESTRUTURA, E A ESTRUTURA UTILIZADA NÃO TIVER SIDO DECLARADA ANTES,
+AO COMPILAR O PROGRAMA, UM ERRO SERÁ APRESENTADO !!
+
+Assim em nosso exemplo, declaramos a estrutura data, que será usada dentro da estrutura aluno. Isto é notado nas linhas 6 a 16.
+A forma de acesso aos membros da estrutura Aluno agora é um pouco diferente. Dentro da estrutura Aluno, é criada uma variável do tipo estrutura Data,
+que é datNasc, é o nome que deverá ser  utilizado para acessar os seus membros. Mas não somente ele, é necessário usar em conjunto com o nome
+da estrutura aluno, como mostram as linhas 23, 24 e 25.

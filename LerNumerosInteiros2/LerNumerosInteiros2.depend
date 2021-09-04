@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1620755374 source:c:\users\thiago.belordi\documents\aulas estacio\c\lernumerosinteiros2\main.c
+	<stdio.h>
+	<stdlib.h>
+

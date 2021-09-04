@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1620926912 source:c:\users\thiago.belordi\documents\aulas estacio\c\vetorlernumeros\main.c
+	<stdio.h>
+	<stdlib.h>
+

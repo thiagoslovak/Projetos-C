@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1620254698 source:c:\users\thiago.belordi\documents\aulas estacio\c\scriptfaculdade_lacofor\main.c
+	<stdio.h>
+	<stdlib.h>
+

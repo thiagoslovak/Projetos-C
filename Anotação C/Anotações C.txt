@@ -1,0 +1,121 @@
+TODO PROJETO EM C É OBRIGATORIO A TER UMA FUNÇÃO MAIN >>Uma subrotina que é utilizado no programa
+Char = caracteres.
+Code::Blocks. = IDE
+
+    //Numeros inteiros: 1, 0, -1, -50, 45, 22
+    //Marcador de  Posicao: %d
+            
+    //Numeros Floats: 2.1, 5.00, 0.002, -0.92
+    //Marcador de Posicao: %f
+
+Char = caracteres.
+
+Para ampliar seus conhecimentos, listamos os principais formatos de escrita e leitura das variáveis, 
+usados com a função printf():
+
+Tipo			Formato				Observações
+
+char			%c			Um único caractere
+int			%d ou %i		Um inteiro (Base decimal)
+int			%o			Um inteiro (Base octal)
+int			%x ou %X		Um inteiro (Base hexadecimal)
+short int		%hd			Um short inteiro (Base decimal)
+long int		%ld			Um long inteiro (Base decimal)
+unsigned short int	%hu			Short inteiro positivo
+unsigned int		%u			Inteiro positivo
+unsigned long int	%lu			Long inteiro positivo
+float			%f ou %e ou %E	
+double			%f ou %e ou %E	
+
+
+Outra função que pode ser usada para a escrita na tela é a puts(), 
+traduzida do inglês como colocar caractere (put + string). 
+Tanto puts (“Hello World”); quanto printf(“Hello World”); terão o mesmo efeito.
+
+A função scanf() permite que o valor informado pelo usuário seja armazenado em uma variável e, 
+posteriormente, usado para diversos cálculos.
+
+
+Atenção
+Temos usado a função scanf() com os nomes das variáveis precedidos de &. Esse operador deve ser lido como o endereço de. 
+Assim, quando passamos o parâmetro &numero para a função scanf, estamos informando o endereço na memória da variável numero. 
+Por essa razão, todas as variáveis dos tipos char, int, float e double devem ser precedidas de &.
+
+Outra função que pode ser usada para a leitura de char, a partir do teclado, é a getc, traduzida do inglês como pegar o caractere. Dessa forma, se declararmos a variável:
+char ch1;
+Tanto getc (ch1); quanto scanf(“%c”, ch1); terão o mesmo efeito. // Só serve para variavel do tipo texto
+
+
+ESTRUTURA DE DECISÃO
+No desenvolvimento de aplicações, estruturamos nossos algoritmos para realizar determinadas atividades.  
+Uma destas estruturas é chamada estrutura de decisão. Esta estrutura permite que a aplicação possa ter mais de uma sequência a ser seguida, 
+que será decidida a partir da inferência de um determinado valor. Este valor, na Linguagem C, será do tipo booleano, portanto, 
+os valores poderão ser falsos (quando forem zero ou null) ou verdadeiros (nos demais casos).
+
+ Esta estrutura é conhecida como SE-ENTÃO e SE-ENTÃO-SENÃO. No primeiro caso, 
+um determinado segmento de código será executado somente se a expressão lógica, que será inferida, for verdadeira, 
+enquanto no segundo caso a inferência da expressão lógica determinará qual segmento de código será executado.
+
+
+Aplicar os conceitos de estruturas de decisão encadeada e aninhada e de múltiplas alternativas>>>>>>>>>>>>>
+
+---Quando um dos comandos que compõe o if (ou else) for outro comando if (simples ou composto), temos o que é chamado de if aninhado
+
+---Quando dois comandos ifs forem sequenciais, teremos o caso de if encadeado 
+
+
+
+4) Marque a opção que apresenta apenas tipos válidos que podem ser empregados em uma estrutura do tipo switch:
+int, char e long
+
+FUNCIONAMENTO DO COMANDO WHILE
+O comando WHILE repete um bloco ou sequência de instruções enquanto uma condição for verdadeira. No momento em que a condição é falsa, 
+o controle do programa passa ao comando após a repetição (ao bloco que está sendo executado repetidas vezes).
+
+CONCEITO DE VETOR 
+
+O vetor é um tipo de dado estruturado ou composto, estático e homogêneo, 
+disponível na maioria das linguagens de programação, incluindo a C.
+
+Como estrutura de dados, 
+o vetor permite que mais de um dado do mesmo tipo seja armazenado.
+
+
+scanf
+Ele não lê o caractere de controle (“\0”), mas, 
+se o scanf estiver dentro de uma repetição, haverá tentativa de leitura desse caractere.
+
+Logo, em comandos de leitura de variáveis do tipo char, coloque a função getchar() para resolver esse problema, 
+conforme o exemplo anterior.
+
+CONCEITO DE MATRIZ
+A matriz é uma estrutura de dados homogênea, 
+na qual usamos dois índices para acessar cada elemento.
+
+Uma matriz é composta por linhas e colunas, tal qual uma planilha Excel, 
+que também tem cada elemento referenciado por uma coluna (A, B, C, D, E) 
+e uma linha (1 ... 10).
+
+UTILIZAÇÃO DOS PONTEIROS = PONTEIRO ARMAZENA O ENDEREÇO DA VARIÁVEL.
+Os ponteiros ou apontadores são muito úteis para acessar uma determinada variável em diferentes partes de um programa.
+Os ponteiros são úteis em várias situações, por exemplo:
+- Alocação dinâmica de memória.
+- Manipulação de arrays.
+- Para retornar mais de um valor em uma função.
+- Referência para listas, pilas, árvores e grafos.
+
+Ex: Declara duas variáveis, a variavel "v_num" do tipo int e a variável "ptr" do tipo int sendo um ponteiro.
+//v_num é a variável que será apontada pelo ponteiro
+int v_num = 10;
+
+//declaração de variável ponteiro
+int *ptr;
+
+Note que foi usado o operador * para designar que a variável "ptr" é um ponteiro. Como a intenção é armazenar o endereço da variável denominada "v_num", que é
+uma variável do tipo int, o ponteiro também tem que ser do tipo int. Isto significa que vai apontar para uma variável do tipo inteiro.
+
+//atribuindo o endereço de v_num ao ponteiro
+ptr = &v_num;
+
+Para atribuir o endereço da variável "v_num" ao ponteiro "ptr", utilizamos o operador de endereço &, pois estamos nos referindo ao endereço da variável "v_num"
+e não ao conteúdo.

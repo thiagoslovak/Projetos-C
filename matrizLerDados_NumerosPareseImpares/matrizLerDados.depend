@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1620995703 source:c:\users\thiago.belordi\documents\aulas estacio\c\matrizlerdados\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1621013097 source:c:\users\thiago.belordi\documents\aulas estacio\c\matrizlerdados_numerospareseimpares\main.c
+	<stdio.h>
+	<stdlib.h>
+
